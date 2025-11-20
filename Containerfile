@@ -6,3 +6,5 @@ RUN bun run compile
 
 FROM scratch
 COPY --from=compiler /workdir/build/glint-server /app/
+
+CMD ["/app/glint-server"]
