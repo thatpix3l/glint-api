@@ -1,8 +1,9 @@
-FROM docker.io/oven/bun:1 AS compiler
+FROM docker.io/oven/bun:1 AS installed-dependencies
 WORKDIR /workdir
 COPY . .
 RUN bun install --production
 
+FROM installed-dependencies as compiled
 ARG TARGETPLATFORM
 
 RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then \
@@ -19,6 +20,6 @@ RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then \
     fi
 
 FROM scratch
-COPY --from=compiler /workdir/build/glint-server /app/
+COPY --from=compiled /workdir/build/glint-server /app/
 
 CMD ["/app/glint-server"]
