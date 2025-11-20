@@ -6,12 +6,12 @@
     "dev": "onchange -i -k \"src/**/*.ts\" -- npm run build-and-start",
     "test": "node --experimental-vm-modules node_modules/.bin/jest --experimental-specifier-resolution=node --no-warnings --silent --runInBand --config jest.config.cjs",
     "lint": "oxlint",
-    "compile": "bun build ./src/main.ts --compile --minify --sourcemap --bytecode --outfile ./build/glint-server --production --target bun -e mock-aws-s3 -e aws-sdk -e nock"
+    "compile": "bun build ./src/main.ts --compile --production --sourcemap --bytecode --outfile ./build/glint-server --target bun"
   },
   "type": "module",
   "dependencies": {
     "@types/nodemailer": "^6.4.21",
-    "bcrypt": "^5.1.1",
+    "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
     "express": "^4.21.2",
     "glint-core": "github:vectorsquad/glint-core",
