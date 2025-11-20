@@ -11,7 +11,7 @@
   "type": "module",
   "dependencies": {
     "@types/nodemailer": "^6.4.21",
-    "bcrypt": "^6.0.0",
+    "bcrypt": "npm:bcryptjs@^3.0.3",
     "cookie-parser": "^1.4.7",
     "express": "^4.21.2",
     "glint-core": "github:vectorsquad/glint-core",
