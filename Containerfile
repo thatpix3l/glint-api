@@ -3,7 +3,7 @@ WORKDIR /workdir
 COPY . .
 RUN bun install --production
 
-FROM installed-dependencies as compiled
+FROM installed-dependencies AS compiled
 ARG TARGETPLATFORM
 
 RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then \
