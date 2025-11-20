@@ -19,7 +19,7 @@ RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then \
         exit 1; \
     fi
 
-FROM gcr.io/distroless/static-debian12
+FROM gcr.io/distroless/base-debian12
 COPY --from=compiled /workdir/build/glint-server /app/
 
 CMD ["/app/glint-server"]
